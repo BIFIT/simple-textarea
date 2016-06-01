@@ -1,0 +1,45 @@
+<link rel="import" href="../../../../bower_components/polymer/polymer.html">
+
+<dom-module id="simple-textarea">
+
+    <template>
+
+      <style>
+
+        :host {
+          position: relative;
+          display: block;
+        }
+
+        pre#textarea[contenteditable="false"] {
+          color: gray;
+        }
+
+        #textarea {
+          @apply(--textarea);
+          outline: none;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+          @apply(--textarea-section);
+        }
+
+      </style>
+
+      <div class="container">
+
+        <pre id="textarea"
+             spellcheck="false"
+             content-editable="{{ editable }}"
+             name$="[[ name ]]"
+             text-content="{{ value::input }}"
+          ></pre>
+
+      </div>
+
+    </template>
+
+    <script>"use strict";new Polymer({is:"simple-textarea",properties:{editable:{type:Boolean,value:!1,observer:"_editableObserver"},value:{type:String,value:"",notify:!0}},_editableObserver:function(){}});</script>
+
+</dom-module>
